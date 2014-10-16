@@ -275,6 +275,27 @@ function problem13() {
 	console.log(carry + digits.join('').substr(0, 10 - carry.toString().length));
 }
 
+function problem14() {
+	var max = 0, target;
+	for (var i = 0; i < 1000000; i++) {
+		var n = i, series = [i];
+		while(n > 1) {
+			if(n % 2 === 0) {
+				n = n / 2;
+			} else {
+				n = n * 3 + 1;
+			}
+			series.push(n);
+		}
+		series.push(n);
+		if(series.length > max) {
+			max = series.length;
+			target = i;
+		}
+	}
+	console.log(target);
+}
+
 function problem41() {
 	var digits = ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
 		max = -1;
